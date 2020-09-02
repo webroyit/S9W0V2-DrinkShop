@@ -1,4 +1,4 @@
-# drinkshop
+# Drink Shop
 
 ## Project setup
 ```
