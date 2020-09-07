@@ -4,15 +4,19 @@
     <p class="animated fadeInRight">Here are the deals</p>
     <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
     
-    <!--  v-bind bind a variable to an attribute -->
-    <img class="img-fluid" v-bind:src="image" v-bind:alt="name" />
+    <div class="row d-flex mb-3 align-items-center">
+      <div class="col-sm-4">
+        <!--  v-bind bind a variable to an attribute -->
+        <img class="img-fluid d-block" v-bind:src="image" v-bind:alt="name" />
+      </div>
+      <div class="col">
+        <h2 class="text-info">{{ name }}</h2>
+        <p class="mb-0">{{ description }}</p>
 
-    <h2>{{ name }}</h2>
-    <p>{{ description }}</p>
-
-    <!--  : works the same as v-bind -->
-    <price :value="price"></price>
-    <p></p>
+        <!--  : works the same as v-bind -->
+        <price class="h5 float-right"  :value="price"></price>
+      </div>
+    </div>
   </div>
 </template>
 
