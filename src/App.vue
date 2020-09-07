@@ -4,19 +4,21 @@
     <p class="animated fadeInRight">Here are the deals</p>
     <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
     
-    <div class="row d-flex mb-3 align-items-center">
+    <!-- v-for to loop through an array  -->
+    <div class="row d-flex mb-3 align-items-center" v-bind:key="drink.id" v-for="drink in drinks">
       <div class="col-sm-4">
         <!--  v-bind bind a variable to an attribute -->
-        <img class="img-fluid d-block" v-bind:src="image" v-bind:alt="name" />
+        <img class="img-fluid d-block" v-bind:src="drink.image" v-bind:alt="name" />
       </div>
       <div class="col">
-        <h2 class="text-info">{{ name }}</h2>
-        <p class="mb-0">{{ description }}</p>
+        <h2 class="text-info">{{ drink.name }}</h2>
+        <p class="mb-0">{{ drink.description }}</p>
 
         <!--  : works the same as v-bind -->
-        <price class="h5 float-right"  :value="price"></price>
+        <price class="h5 float-right"  :value="drink.price"></price>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -36,8 +38,31 @@ export default {
     return {
       name: "Soda",
       description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quam consequuntur culpa aliquam excepturi sunt magni minima eos tempora aperiam. Temporibus, unde? Assumenda dolores et enim tempora dolorem eligendi aliquam!",
-      image: "https://images.unsplash.com/photo-1596803244618-8dbee441d70b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
-      price: 1
+      image: "https://images.unsplash.com/photo-1504502350688-00f5d59bbdeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      price: 1,
+      drinks: [
+        {
+          id: 1,
+          name: "Soda",
+          description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quam consequuntur culpa aliquam excepturi sunt magni minima eos tempora aperiam. Temporibus, unde? Assumenda dolores et enim tempora dolorem eligendi aliquam!",
+          image: "https://images.unsplash.com/photo-1596803244618-8dbee441d70b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
+          price: 1,
+        },
+        {
+          id: 2,
+          name: "Beer",
+          description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quam consequuntur culpa aliquam excepturi sunt magni minima eos tempora aperiam. Temporibus, unde? Assumenda dolores et enim tempora dolorem eligendi aliquam!",
+          image: "https://images.unsplash.com/photo-1504502350688-00f5d59bbdeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+          price: 5,
+        },
+        {
+          id: 3,
+          name: "Smoothie",
+          description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quam consequuntur culpa aliquam excepturi sunt magni minima eos tempora aperiam. Temporibus, unde? Assumenda dolores et enim tempora dolorem eligendi aliquam!",
+          image: "https://images.unsplash.com/photo-1513169639596-cf0480fe1bb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+          price: 4.5,
+        }
+      ]
     }
   }
 }
