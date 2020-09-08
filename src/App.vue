@@ -4,8 +4,13 @@
     <p class="animated fadeInRight">Here are the deals</p>
     <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
     
-    <!-- v-model to change the value of max -->
-    <input type="text" class="form-control w-25" v-model="max">
+    <div class="form-inline mr-auto">
+      <label class="font-weight-bold mr-2" for="formMax">Max</label>
+      <!-- v-model to change the value of max -->
+      <input id="formMax" type="text" class="form-control w-25" v-model="max">
+    </div>
+
+    <input type="range" class="custom-range" min="0" max="20" v-model="max">
 
     <!-- v-for to loop through an array  -->
     <div class="row d-flex mb-3 align-items-center" v-bind:key="drink.id" v-for="drink in drinks">
@@ -39,7 +44,7 @@ export default {
   },
   data() {
     return {
-      max: 100,
+      max: 20,
       drinks: [
         {
           id: 1,
