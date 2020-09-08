@@ -4,13 +4,15 @@
     <p class="animated fadeInRight">Here are the deals</p>
     <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
     
+    <!-- v-model to change the value of max -->
+    <input type="text" class="form-control w-25" v-model="max">
+
     <!-- v-for to loop through an array  -->
     <div class="row d-flex mb-3 align-items-center" v-bind:key="drink.id" v-for="drink in drinks">
-
       <div v-if="drink.price<=Number(max)">
         <div class="col-sm-4">
           <!--  v-bind bind a variable to an attribute -->
-          <img class="img-fluid d-block" v-bind:src="drink.image" v-bind:alt="name" />
+          <img class="img-fluid d-block" v-bind:src="drink.image" v-bind:alt="name" >
         </div>
         <div class="col">
           <h2 class="text-info">{{ drink.name }}</h2>
@@ -37,7 +39,7 @@ export default {
   },
   data() {
     return {
-      max: 4.5,
+      max: 100,
       drinks: [
         {
           id: 1,
