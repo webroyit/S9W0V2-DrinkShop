@@ -4,7 +4,7 @@
       <div class="container">
         <div class="navbar-text ml-auto">
           <b>Cart: </b>
-          <span class="badge badge-pill badge-success">0</span>
+          <span class="badge badge-pill badge-success">{{ cart.length }}</span>
         </div>
       </div>
     </nav>
@@ -25,7 +25,8 @@
     <div v-bind:key="drink.id" v-for="drink in drinks">
       <div class="row d-flex mb-3 align-items-center" v-if="drink.price<=Number(max)">
         <div class="col-1 m-auto">
-          <button class="btn btn-info">+</button>
+          <!-- v-on to handle event -->
+          <button class="btn btn-info" v-on:click="cart.push(drink)">+</button>
         </div>
 
         <div class="col-4">
@@ -81,7 +82,8 @@ export default {
           image: "https://images.unsplash.com/photo-1513169639596-cf0480fe1bb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
           price: 4.5,
         }
-      ]
+      ],
+      cart: []
     }
   }
 }
