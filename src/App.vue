@@ -1,5 +1,14 @@
 <template>
   <div id="app" class="container mt-5">
+    <nav class="navbar navbar-light bg-light fixed-top">
+      <div class="container">
+        <div class="navbar-text ml-auto">
+          <b>Cart: </b>
+          <span class="badge badge-pill badge-success">0</span>
+        </div>
+      </div>
+    </nav>
+
     <h1>Drink Shop</h1>
     <p class="animated fadeInRight">Here are the deals</p>
     <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
