@@ -13,13 +13,12 @@
     <p class="animated fadeInRight">Here are the deals</p>
     <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
     
-    <div class="form-inline mr-auto">
-      <label class="font-weight-bold mr-2" for="formMax">Max</label>
+    <div class="d-flex align-items-center">
+      <label :class="['font-weight-bold', 'mr-2']" for="formMax">Max</label>
       <!-- v-model to change the value of max -->
-      <input id="formMax" type="text" class="form-control w-25" v-model="max">
+      <input id="formMax" type="text" class="form-control mx-2" :style="{'width': '60px', 'text-align': 'center'}" v-model="max">
+      <input type="range" class="custom-range" min="0" max="20" v-model="max">
     </div>
-
-    <input type="range" class="custom-range" min="0" max="20" v-model="max">
 
     <!-- v-for to loop through an array  -->
     <div v-bind:key="drink.id" v-for="drink in drinks">
