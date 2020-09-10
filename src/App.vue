@@ -1,10 +1,16 @@
 <template>
   <div id="app" class="container mt-5">
-    <nav class="navbar navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-light fixed-top">
       <div class="container">
-        <div class="navbar-text ml-auto">
-          <b>Cart: </b>
-          <span class="badge badge-pill badge-success">{{ cart.length }}</span>
+        <div class="navbar-text ml-auto d-flex">
+          <!-- @ is the same as v-on -->
+          <button class="btn btn-sm btn-outline-success" @click="sliderStatus = !sliderStatus">
+             <font-awesome-icon icon="dollar-sign"></font-awesome-icon>
+          </button>
+          <div class="ml-2" v-if="cart.length > 0">
+            <b>Cart: </b>
+            <span class="badge badge-pill badge-success">{{ cart.length }}</span>
+          </div>
         </div>
       </div>
     </nav>
@@ -13,7 +19,7 @@
     <p class="animated fadeInRight">Here are the deals</p>
     <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
     
-    <div class="d-flex align-items-center">
+    <div class="align-items-center" :class="sliderState">
       <label :class="['font-weight-bold', 'mr-2']" for="formMax">Max</label>
       <!-- v-model to change the value of max -->
       <input id="formMax" type="text" class="form-control mx-2" :style="{'width': '60px', 'text-align': 'center'}" v-model="max">
@@ -59,6 +65,7 @@ export default {
   data() {
     return {
       max: 20,
+      sliderStatus: false,
       drinks: [
         {
           id: 1,
@@ -72,7 +79,7 @@ export default {
           name: "Beer",
           description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quam consequuntur culpa aliquam excepturi sunt magni minima eos tempora aperiam. Temporibus, unde? Assumenda dolores et enim tempora dolorem eligendi aliquam!",
           image: "https://images.unsplash.com/photo-1504502350688-00f5d59bbdeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-          price: 5,
+          price: 6,
         },
         {
           id: 3,
@@ -83,6 +90,11 @@ export default {
         }
       ],
       cart: []
+    }
+  },
+  computed: {
+    sliderState: function(){
+      return this.sliderStatus ? 'd-flex': 'd-none'
     }
   },
   methods: {
