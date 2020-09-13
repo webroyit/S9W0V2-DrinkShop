@@ -7,9 +7,17 @@
           <button class="btn btn-sm btn-outline-success" @click="sliderStatus = !sliderStatus">
              <font-awesome-icon icon="dollar-sign"></font-awesome-icon>
           </button>
-          <div class="ml-2" v-if="cart.length > 0">
-            <b>Cart: </b>
-            <span class="badge badge-pill badge-success">{{ cart.length }}</span>
+          <div class="ml-2">
+            <button
+              class="btn btn-success btn-sm dropdown-toggle"
+              id=cartDropdown
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <b>Cart: </b>
+              <span class="badge badge-pill badge-success">{{ cart.length }}</span>
+            </button>
           </div>
         </div>
       </div>

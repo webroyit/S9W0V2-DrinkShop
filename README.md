@@ -22,3 +22,10 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Notes
+- These are for screen readers
+```
+aria-haspopup="true"
+aria-expanded="false"
+```
