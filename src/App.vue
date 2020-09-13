@@ -18,6 +18,20 @@
               <b>Cart: </b>
               <span class="badge badge-pill badge-success">{{ cart.length }}</span>
             </button>
+
+            <div class="dropdown-menu dropdown-menu-right">
+              <div v-for="(drink, index) in cart" :key="index">
+                <div>
+                  <div class="dropdown-item-text text-nowrap text-right">
+                    <span class="badge badge-pill badge-warning align-text-top mr-1">
+                      1
+                    </span>
+                    {{ drink.name }}
+                    <b><price :value="drink.price"> </price></b>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
