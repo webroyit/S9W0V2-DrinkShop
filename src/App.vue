@@ -24,10 +24,10 @@
                 <div>
                   <div class="dropdown-item-text text-nowrap text-right">
                     <span class="badge badge-pill badge-warning align-text-top mr-1">
-                      1
+                      {{ drink.qty }}
                     </span>
-                    {{ drink.name }}
-                    <b><price :value="drink.price"> </price></b>
+                    {{ drink.product.name }}
+                    <b><price :value="drink.qty * drink.product.price"> </price></b>
                   </div>
                 </div>
               </div>
@@ -126,8 +126,24 @@ export default {
     }
   },
   methods: {
-    addDrink: function(drink){
-      this.cart.push(drink);
+    addDrink: function(drink) {
+      let whichDrink;
+      let existing = this.cart.filter(function(item, index) {
+        if(item.product.id == Number(drink.id)){
+          whichDrink = index;
+          return true;
+        }
+        else{
+          return false;
+        }
+      });
+
+      if(existing.length) {
+        this.cart[whichDrink].qty++;
+      }
+      else {
+        this.cart.push({ product: drink, qty: 1 });
+      }
     }
   }
 }
