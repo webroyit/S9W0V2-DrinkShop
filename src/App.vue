@@ -7,7 +7,7 @@
           <button class="btn btn-sm btn-outline-success" @click="sliderStatus = !sliderStatus">
              <font-awesome-icon icon="dollar-sign"></font-awesome-icon>
           </button>
-          <div class="ml-2">
+          <div class="dropdown ml-2">
             <button
               class="btn btn-success btn-sm dropdown-toggle"
               id=cartDropdown
@@ -15,8 +15,9 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <b>Cart: </b>
-              <span class="badge badge-pill badge-success">{{ cart.length }}</span>
+              <span class="badge badge-pill badge-light mr-1">{{ cartQty }}</span>
+              <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
+              <price class="ml-2" :value="cartTotal"> </price>
             </button>
 
             <div class="dropdown-menu dropdown-menu-right">
@@ -39,7 +40,6 @@
 
     <h1>Drink Shop</h1>
     <p class="animated fadeInRight">Here are the deals</p>
-    <font-awesome-icon icon="shopping-cart"></font-awesome-icon>
     
     <transition name="fade">
       <div v-if="sliderStatus">
@@ -121,6 +121,20 @@ export default {
     }
   },
   computed: {
+    cartTotal: function() {
+      let sum = 0;
+      for (let key in this.cart) {
+        sum = sum + (this.cart[key].product.price * this.cart[key].qty);
+      }
+      return sum;
+    },
+    cartQty: function() {
+      let qty = 0;
+      for (let key in this.cart) {
+        qty = qty + this.cart[key].qty;
+      }
+      return qty;
+    },
     sliderState: function(){
       return this.sliderStatus ? 'd-flex': 'd-none'
     }
