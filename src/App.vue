@@ -29,6 +29,7 @@
                     </span>
                     {{ drink.product.name }}
                     <b><price :value="drink.qty * drink.product.price"> </price></b>
+                    <a href="#" @click="deleteDrink(index)" class="badge badge-danger text-white ml-1">-</a>
                   </div>
                 </div>
               </div>
@@ -157,6 +158,14 @@ export default {
       }
       else {
         this.cart.push({ product: drink, qty: 1 });
+      }
+    },
+    deleteDrink: function(id) {
+      if(this.cart[id].qty > 1) {
+        this.cart[id].qty--;
+      }
+      else {
+        this.cart.splice(id, 1);
       }
     }
   }
