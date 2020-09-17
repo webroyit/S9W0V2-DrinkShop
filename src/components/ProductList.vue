@@ -6,7 +6,9 @@
             <div class="row d-flex mb-3 align-items-center" v-if="drink.price<=Number(max)">
             <div class="col-1 m-auto">
                 <!-- v-on to handle event -->
-                <button class="btn btn-info" v-on:click="addDrink(drink)">+</button>
+                <!-- emit to use a method from another component -->
+                <!-- second argument of emit is the data to pass to another component -->
+                <button class="btn btn-info" v-on:click="$emit('add-drink', drink)">+</button>
             </div>
 
             <div class="col-4">

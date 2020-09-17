@@ -54,7 +54,7 @@
       </div>
     </transition>
 
-    <product-list :max="max" :drinks="drinks"></product-list>
+    <product-list :max="max" :drinks="drinks" @add-drink="addDrink"></product-list>
 
   </div>
 </template>
