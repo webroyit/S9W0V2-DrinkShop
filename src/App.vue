@@ -43,7 +43,7 @@
     <h1>Drink Shop</h1>
     <p class="animated fadeInRight">Here are the deals</p>
     
-    <price-slider :sliderStatus="sliderStatus"></price-slider>
+    <price-slider :sliderStatus="sliderStatus" :max.sync="max"></price-slider>
 
     <product-list :max="max" :drinks="drinks" @add-drink="addDrink"></product-list>
 
@@ -144,13 +144,5 @@ export default {
 </script>
 
 <style>
-  /* these names are from vue */
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: all .5s ease-in-out;
-  }
 
 </style>
