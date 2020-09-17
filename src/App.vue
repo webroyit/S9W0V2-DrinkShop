@@ -43,16 +43,7 @@
     <h1>Drink Shop</h1>
     <p class="animated fadeInRight">Here are the deals</p>
     
-    <transition name="fade">
-      <div v-if="sliderStatus">
-        <div class="align-items-center" :class="sliderState">
-          <label :class="['font-weight-bold', 'mr-2']" for="formMax">Max</label>
-          <!-- v-model to change the value of max -->
-          <input id="formMax" type="text" class="form-control mx-2" :style="{'width': '60px', 'text-align': 'center'}" v-model="max">
-          <input type="range" class="custom-range" min="0" max="20" v-model="max">
-        </div>
-      </div>
-    </transition>
+    <price-slider :sliderStatus="sliderStatus"></price-slider>
 
     <product-list :max="max" :drinks="drinks" @add-drink="addDrink"></product-list>
 
@@ -62,6 +53,7 @@
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import ProductList from './components/ProductList.vue'
+import PriceSlider from './components/PriceSlider'
 import Price from './components/Price.vue'
 
 export default {
@@ -69,12 +61,13 @@ export default {
   components: {
     FontAwesomeIcon,
     ProductList,
+    PriceSlider,
     Price
   },
   data() {
     return {
       max: 20,
-      sliderStatus: false,
+      sliderStatus: true,
       drinks: [
         {
           id: 1,
@@ -115,9 +108,6 @@ export default {
         qty = qty + this.cart[key].qty;
       }
       return qty;
-    },
-    sliderState: function(){
-      return this.sliderStatus ? 'd-flex': 'd-none'
     }
   },
   methods: {
