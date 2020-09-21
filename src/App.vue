@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container mt-5">
-    <navbar :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal"></navbar>
+    <navbar :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal" @toggle="toggleSliderStatus"></navbar>
     <h1>Drink Shop</h1>
     <p class="animated fadeInRight">Here are the deals</p>
     
@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       max: 20,
-      sliderStatus: true,
+      sliderStatus: false,
       drinks: [
         {
           id: 1,
@@ -70,6 +70,9 @@ export default {
     }
   },
   methods: {
+    toggleSliderStatus: function() {
+      this.sliderStatus = !this.sliderStatus;
+    },
     addDrink: function(drink) {
       let whichDrink;
       let existing = this.cart.filter(function(item, index) {

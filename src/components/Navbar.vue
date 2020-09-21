@@ -3,7 +3,7 @@
       <div class="container">
         <div class="navbar-text ml-auto d-flex">
           <!-- @ is the same as v-on -->
-          <button class="btn btn-sm btn-outline-success" @click="sliderStatus = !sliderStatus">
+          <button class="btn btn-sm btn-outline-success" @click="$emit('toggle')">
              <font-awesome-icon icon="dollar-sign"></font-awesome-icon>
           </button>
           <div class="dropdown ml-2">
