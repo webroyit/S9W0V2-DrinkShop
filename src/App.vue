@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container mt-5">
-    <navbar :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal" @toggle="toggleSliderStatus"></navbar>
+    <navbar :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal" @toggle="toggleSliderStatus" @delete="deleteDrink"></navbar>
     <h1>Drink Shop</h1>
     <p class="animated fadeInRight">Here are the deals</p>
     

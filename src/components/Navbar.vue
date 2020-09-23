@@ -29,7 +29,7 @@
                     {{ drink.product.name }}
                     <b><price :value="drink.qty * drink.product.price"> </price></b>
                     <!-- .stop to prevent the event of closing the dropdown -->
-                    <a href="#" @click.stop="deleteDrink(index)" class="badge badge-danger text-white ml-1">-</a>
+                    <a href="#" @click.stop="$emit('delete', index)" class="badge badge-danger text-white ml-1">-</a>
                   </div>
                 </div>
               </div>
