@@ -3,7 +3,7 @@
       <div class="container">
         <div class="navbar-text ml-auto d-flex">
           <!-- @ is the same as v-on -->
-          <button class="btn btn-sm btn-outline-success" @click="$emit('toggle')">
+          <button class="btn btn-sm btn-outline-success" @click="$parent.$emit('toggle')">
              <font-awesome-icon icon="dollar-sign"></font-awesome-icon>
           </button>
           <div class="dropdown ml-2">
@@ -29,7 +29,7 @@
                     {{ drink.product.name }}
                     <b><price :value="drink.qty * drink.product.price"> </price></b>
                     <!-- .stop to prevent the event of closing the dropdown -->
-                    <a href="#" @click.stop="$emit('delete', index)" class="badge badge-danger text-white ml-1">-</a>
+                    <a href="#" @click.stop="$parent.$emit('delete', index)" class="badge badge-danger text-white ml-1">-</a>
                   </div>
                 </div>
               </div>

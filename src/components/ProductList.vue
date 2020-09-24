@@ -8,7 +8,8 @@
                 <!-- v-on to handle event -->
                 <!-- emit to use a method from another component -->
                 <!-- second argument of emit is the data to pass to another component -->
-                <button class="btn btn-info" v-on:click="$emit('add-drink', drink)">+</button>
+                <!-- $parent for more than 1 component above -->
+                <button class="btn btn-info" v-on:click="$parent.$emit('add-drink', drink)">+</button>
             </div>
 
             <div class="col-4">
