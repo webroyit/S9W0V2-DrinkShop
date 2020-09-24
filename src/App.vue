@@ -1,23 +1,33 @@
 <template>
-  <products
-    :cart="cart"
-    :cartQty="cartQty"
-    :cartTotal="cartTotal"
-    :drinks="drinks"
-    :sliderStatus="sliderStatus"
-    :max.sync="max"
-    @add-drink="addDrink"
-    @toggle="toggleSliderStatus"
-    @delete="deleteDrink"></products>
+  <div>
+    <checkout
+      :cart="cart"
+      :cartQty="cartQty"
+      :cartTotal="cartTotal"
+      @add-drink="addDrink"
+      @delete="deleteDrink"></checkout>
+    <products
+      :cart="cart"
+      :cartQty="cartQty"
+      :cartTotal="cartTotal"
+      :drinks="drinks"
+      :sliderStatus="sliderStatus"
+      :max.sync="max"
+      @add-drink="addDrink"
+      @toggle="toggleSliderStatus"
+      @delete="deleteDrink"></products>
+  </div>
 </template>
 
 <script>
 import Products from './components/Products.vue'
+import Checkout from './components/Checkout.vue'
 
 export default {
   name: 'App',
   components: {
-    Products
+    Products,
+    Checkout
   },
   data() {
     return {
