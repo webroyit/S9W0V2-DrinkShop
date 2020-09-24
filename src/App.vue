@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app" class="container mt-5">
     <checkout
       :cart="cart"
       :cartQty="cartQty"
