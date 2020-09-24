@@ -10,9 +10,9 @@
             type="text"
             class="form-control mx-2"
             :style="{'width': '60px', 'text-align': 'center'}"
-            v-model="max"
-            @change="$parent.$emit('update:max', max)">
-          <input type="range" class="custom-range" min="0" max="20" v-model="max" @input="$emit('update:max', max)">
+            v-model="maxAmount"
+            @change="$parent.$emit('update:max', maxAmount)">
+          <input type="range" class="custom-range" min="0" max="20" v-model="maxAmount" @input="$emit('update:max', maxAmount)">
         </div>
       </div>
     </transition>
@@ -23,7 +23,7 @@ export default {
     name: "price-slider",
     data() {
      return {
-        max: 20
+        maxAmount: 20
      }
     },
     props: ['sliderStatus'],

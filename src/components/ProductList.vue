@@ -14,7 +14,7 @@
 
             <div class="col-4">
                 <!--  v-bind bind a variable to an attribute -->
-                <img class="img-fluid d-block" v-bind:src="drink.image" v-bind:alt="name" >
+                <img class="img-fluid d-block" v-bind:src="drink.image" v-bind:alt="drink.name" >
             </div>
 
             <div class="col">
