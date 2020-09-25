@@ -31,6 +31,7 @@
                 </tr>
             </tbody>
         </table>
+        <router-link class="btn btn-sm btn-outline-info text-dark" to="/">Go Back</router-link>
     </div>
 </template>
 
