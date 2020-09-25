@@ -1,12 +1,6 @@
 <template>
   <div id="app" class="container mt-5">
-    <checkout
-      :cart="cart"
-      :cartQty="cartQty"
-      :cartTotal="cartTotal"
-      @add-drink="addDrink"
-      @delete="deleteDrink"></checkout>
-    <products
+    <router-view
       :cart="cart"
       :cartQty="cartQty"
       :cartTotal="cartTotal"
@@ -15,20 +9,15 @@
       :max.sync="max"
       @add-drink="addDrink"
       @toggle="toggleSliderStatus"
-      @delete="deleteDrink"></products>
+      @delete="deleteDrink">
+    </router-view>
   </div>
 </template>
 
 <script>
-import Products from './components/Products.vue'
-import Checkout from './components/Checkout.vue'
 
 export default {
   name: 'App',
-  components: {
-    Products,
-    Checkout
-  },
   data() {
     return {
       max: 20,
